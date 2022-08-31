@@ -1,0 +1,23 @@
+{
+  "name": "first-commit",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "node dist/index.js",
+    "prestart": "etsc",
+    "dev": "nodemon"
+  },
+  "typings": "./dist/index.d.ts",
+  "author": "Justin White <kyjus25@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^0.27.2",
+    "cheerio": "^1.0.0-rc.12",
+    "fastify": "^4.5.3"
+  },
+  "devDependencies": {
+    "@types/node": "^18.7.14",
+    "esbuild": "^0.15.6",
+    "esbuild-node-tsc": "^2.0.2",
+    "nodemon": "^2.0.19"
+  }
+}
