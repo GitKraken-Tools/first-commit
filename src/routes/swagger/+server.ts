@@ -13,14 +13,14 @@ export const GET = async (event: RequestEvent) => {
             "in": "path",
             "required": true,
             "type": "string",
-            "default": "kyjus25"    
+            "default": "GitKraken-Tools"    
         },
         {
             "name": 'repo',
             "in": "path",
             "required": true,
             "type": "string",
-            "default": "chrome-open-in-gk"
+            "default": "open-in-gitkraken"
         }
     ]
     
