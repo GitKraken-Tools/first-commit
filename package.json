@@ -1,24 +1,23 @@
 {
-  "name": "first-commit",
-  "version": "1.0.0",
-  "scripts": {
-    "start": "node dist/index.js",
-    "prestart": "etsc",
-    "dev": "nodemon"
-  },
-  "typings": "./dist/index.d.ts",
-  "author": "Justin White <kyjus25@gmail.com>",
-  "license": "MIT",
-  "dependencies": {
-    "@netlify/functions": "^1.2.0",
-    "axios": "^0.27.2",
-    "fastify": "^4.5.3",
-    "typescript": "^4.8.2"
-  },
-  "devDependencies": {
-    "@types/node": "^14.18.26",
-    "esbuild": "^0.15.6",
-    "esbuild-node-tsc": "^2.0.2",
-    "nodemon": "^2.0.19"
-  }
+	"name": "initial-commit",
+	"version": "0.0.1",
+	"private": true,
+	"scripts": {
+		"dev": "vite dev",
+		"build": "vite build",
+		"preview": "vite preview",
+		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
+		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch"
+	},
+	"devDependencies": {
+		"@sveltejs/adapter-auto": "next",
+		"@sveltejs/kit": "next",
+		"svelte": "^3.44.0",
+		"svelte-check": "^2.7.1",
+		"svelte-preprocess": "^4.10.6",
+		"tslib": "^2.3.1",
+		"typescript": "^4.7.4",
+		"vite": "^3.1.0-beta.1"
+	},
+	"type": "module"
 }
