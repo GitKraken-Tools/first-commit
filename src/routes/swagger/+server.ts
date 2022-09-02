@@ -36,12 +36,11 @@ export const GET = async (event: RequestEvent) => {
     ];
 
     const paths: any = {
-        '/[user]/[repo]/sha': {
+        '/{user}/{repo}/sha': {
             get: {
                 tags: ['commit'],
                 description: "Return only the commit SHA",
-                consumes: ["application/json"],
-                produces: ["application/json"],
+                produces: ["application/text"],
                 parameters,
                 responses: {
                     200: {
@@ -51,11 +50,10 @@ export const GET = async (event: RequestEvent) => {
                 },
             }
         },
-        '/[user]/[repo]/verbose': {
+        '/{user}/{repo}/verbose': {
             get: {
                 tags: ['commit'],
                 description: "Return the full commit data provided by the GitHub API",
-                consumes: ["application/json"],
                 produces: ["application/json"],
                 parameters,
                 responses: {
@@ -68,12 +66,11 @@ export const GET = async (event: RequestEvent) => {
                 },
             }
         },
-        '/[user]/[repo]/commits': {
+        '/{user}/{repo}/numCommits': {
             get: {
                 tags: ['repo'],
                 description: "Return the amount of commits in the repo",
-                consumes: ["application/json"],
-                produces: ["application/json"],
+                produces: ["application/text"],
                 parameters,
                 responses: {
                     200: {
