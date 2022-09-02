@@ -101,7 +101,7 @@ export const GET = async (event: RequestEvent) => {
         },
         host: event.url.host,
         basePath: "/",
-        schemes: event.url.protocol === 'https' ? ["https", "http"] : ["http", "https"],
+        schemes: ["https", "http"],
         tags,
         paths,
         definitions
