@@ -6,6 +6,23 @@ import * as diff from './diff.json';
 import * as verification from './verification.json';
 
 export const GET = async (event: RequestEvent) => {
+
+    const parameters = [
+        {
+            "name": 'user',
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "default": "kyjus25"    
+        },
+        {
+            "name": 'repo',
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "default": "chrome-open-in-gk"
+        }
+    ]
     
     const tags: any[] = [
         {
@@ -19,12 +36,28 @@ export const GET = async (event: RequestEvent) => {
     ];
 
     const paths: any = {
+        '/[user]/[repo]/sha': {
+            get: {
+                tags: ['commit'],
+                description: "Return only the commit SHA",
+                consumes: ["application/json"],
+                produces: ["application/json"],
+                parameters,
+                responses: {
+                    200: {
+                      description: "successful operation",
+                      type: "string"
+                    },
+                },
+            }
+        },
         '/[user]/[repo]/verbose': {
             get: {
                 tags: ['commit'],
                 description: "Return the full commit data provided by the GitHub API",
                 consumes: ["application/json"],
                 produces: ["application/json"],
+                parameters,
                 responses: {
                     200: {
                       description: "successful operation",
@@ -35,26 +68,13 @@ export const GET = async (event: RequestEvent) => {
                 },
             }
         },
-        '/[user]/[repo]/sha': {
-            get: {
-                tags: ['commit'],
-                description: "Return only the commit SHA",
-                consumes: ["application/json"],
-                produces: ["application/json"],
-                responses: {
-                    200: {
-                      description: "successful operation",
-                      type: "string"
-                    },
-                },
-            }
-        },
         '/[user]/[repo]/commits': {
             get: {
                 tags: ['repo'],
                 description: "Return the amount of commits in the repo",
                 consumes: ["application/json"],
                 produces: ["application/json"],
+                parameters,
                 responses: {
                     200: {
                       description: "successful operation",
@@ -80,7 +100,7 @@ export const GET = async (event: RequestEvent) => {
             version: "1.0.0"
         },
         host: event.url.host,
-        basePath: "/api",
+        basePath: "/",
         schemes: event.url.protocol === 'https' ? ["https", "http"] : ["http", "https"],
         tags,
         paths,
